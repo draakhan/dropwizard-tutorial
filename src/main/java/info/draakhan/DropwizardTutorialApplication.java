@@ -1,5 +1,6 @@
 package info.draakhan;
 
+import info.draakhan.health.TemplateHealthCheck;
 import info.draakhan.resources.DropwizardTutorialResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -30,6 +31,10 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
             configuration.getTemplate(),
             configuration.getDefaultName()
         );
+
+        final TemplateHealthCheck templateHealthCheck = new TemplateHealthCheck(configuration.getTemplate());
+
+        environment.healthChecks().register("template", templateHealthCheck);
         environment.jersey().register(dropwizardTutorialResource);
     }
 }
