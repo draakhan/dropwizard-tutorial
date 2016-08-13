@@ -1,5 +1,6 @@
 package info.draakhan;
 
+import info.draakhan.resources.DropwizardTutorialResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -21,9 +22,14 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
     }
 
     @Override
-    public void run(final DropwizardTutorialConfiguration configuration,
-                    final Environment environment) {
-        // TODO: implement application
+    public void run(
+        final DropwizardTutorialConfiguration configuration,
+        final Environment environment
+    ) {
+        final DropwizardTutorialResource dropwizardTutorialResource = new DropwizardTutorialResource(
+            configuration.getTemplate(),
+            configuration.getDefaultName()
+        );
+        environment.jersey().register(dropwizardTutorialResource);
     }
-
 }
