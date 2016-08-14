@@ -1,5 +1,6 @@
 package info.draakhan;
 
+import info.draakhan.core.queue.MessageQueueClient;
 import info.draakhan.health.TemplateHealthCheck;
 import info.draakhan.resources.DropwizardTutorialResource;
 import io.dropwizard.Application;
@@ -23,10 +24,7 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
     }
 
     @Override
-    public void run(
-        final DropwizardTutorialConfiguration configuration,
-        final Environment environment
-    ) {
+    public void run(final DropwizardTutorialConfiguration configuration, final Environment environment) {
         final DropwizardTutorialResource dropwizardTutorialResource = new DropwizardTutorialResource(
             configuration.getTemplate(),
             configuration.getDefaultName()
@@ -36,5 +34,7 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
 
         environment.healthChecks().register("template", templateHealthCheck);
         environment.jersey().register(dropwizardTutorialResource);
+
+        MessageQueueClient messageQueueClient = configuration.getMessageQueueFactory().build(environment);
     }
 }
