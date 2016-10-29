@@ -31,6 +31,7 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
         );
         
         bootstrap.addBundle(new AssetsBundle());
+        bootstrap.addCommand(new HelloCommand());
     }
 
     @Override
