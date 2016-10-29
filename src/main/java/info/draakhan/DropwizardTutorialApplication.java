@@ -4,6 +4,7 @@ import info.draakhan.core.queue.MessageQueueClient;
 import info.draakhan.health.TemplateHealthCheck;
 import info.draakhan.resources.DropwizardTutorialResource;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
@@ -28,6 +29,8 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
                 new EnvironmentVariableSubstitutor(false)
             )
         );
+        
+        bootstrap.addBundle(new AssetsBundle());
     }
 
     @Override
