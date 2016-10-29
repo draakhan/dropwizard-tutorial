@@ -15,12 +15,12 @@
     <packaging>jar</packaging>
 
     <name>DropwizardTutorial</name>
-    <description>Dropwizard Tutorial from http://www.dropwizard.io/1.0.0/docs/getting-started.html</description>
+    <description>Dropwizard Tutorial from http://www.dropwizard.io/1.0.3/docs/getting-started.html</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <dropwizard.version>1.0.0</dropwizard.version>
+        <dropwizard.version>1.0.3</dropwizard.version>
         <mainClass>info.draakhan.DropwizardTutorialApplication</mainClass>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
     </properties>
