@@ -1,6 +1,6 @@
 package info.draakhan;
 
-import info.draakhan.core.queue.MessageQueueClient;
+import info.draakhan.cli.HelloCommand;
 import info.draakhan.health.TemplateHealthCheck;
 import info.draakhan.resources.DropwizardTutorialResource;
 import io.dropwizard.Application;
@@ -46,6 +46,6 @@ public class DropwizardTutorialApplication extends Application<DropwizardTutoria
         environment.healthChecks().register("template", templateHealthCheck);
         environment.jersey().register(dropwizardTutorialResource);
 
-        MessageQueueClient messageQueueClient = configuration.getMessageQueueFactory().build(environment);
+        configuration.getMessageQueueFactory().build(environment);
     }
 }
